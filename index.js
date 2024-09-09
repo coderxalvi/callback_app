@@ -50,9 +50,9 @@ app.post("/webhook", (req, res) => {
         headers: {
           "Content-Type": "application/json",
         },
+        httpsAgent: new require("https").Agent({ rejectUnauthorized: false }),
       }
-    )
-    .then((response) => {
+    ).then((response) => {
       console.log("Event forwarded successfully:", response.data);
       res.sendStatus(200);
     })
