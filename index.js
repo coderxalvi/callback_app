@@ -44,7 +44,7 @@ app.post('/webhook', (req, res) => {
   console.log('Received event:', event);
 
   // Forward the event to the Node.js app running on port 8081
-  axios.post('http://localhost:8081/forwarded-event', event)
+  axios.post('http://localhost:8081/v1/api/messaging-webhook', event)
     .then(response => {
       console.log('Event forwarded successfully:', response.data);
       res.sendStatus(200);
