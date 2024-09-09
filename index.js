@@ -44,7 +44,7 @@ app.post("/webhook", (req, res) => {
   // Forward the event to the Node.js app running on port 8081 as a JSON string
   axios
     .post(
-      "https://s4s1vqvr-8081.asse.devtunnels.ms/v1/api/messaging-webhook",
+      "http://localhost:8081/messaging-webhook",
       JSON.stringify(event),
       {
         headers: {
