@@ -8,6 +8,21 @@ const VERIFY_TOKEN = "23e333d956faf200886cbecf02ca0490";
 
 app.use(bodyParser.json());
 
+/* connection establishment */
+app.get("/", (req, res, next) => {
+    try {
+      res.status(200).json({
+        acknowledgement: true,
+        message: "OK",
+        description: "The request is OK",
+      });
+    } catch (err) {
+      next(err);
+    } finally {
+      //console.log(`Route: ${req.url} || Method: ${req.method}`);
+    }
+  });
+
 app.get('/webhook', (req, res) => {
   const mode = req.query['hub.mode'];
   const token = req.query['hub.verify_token'];
